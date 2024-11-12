@@ -12,6 +12,24 @@ const descuentos = [0, 0.05, 0.10, 0.15, 0.2] // Descuento por cantidad de alumn
 const cursos = ["Excel Inicial", "Excel Intermedio", "Excel Avanzado"]
 const cotizaciones = []
 
+function ingresoNivel() {
+    let nivel =Number(prompt("Ingrese 1,  2 o 3 indicando el curso que quiere cotizar:\n1 - Curso nivel INICIAL\n2 - Curso nivel INTERMEDIO\n3 - Curso nivel AVANZADO"))
+
+    while (!(nivel == 1 || nivel == 2 || nivel == 3) || isNaN(nivel)) {
+        nivel =Number(prompt("Nivel invalido!\nIngrese 1,  2 o 3 indicando el curso que quiere cotizar:\n1 - Curso nivel INICIAL\n2 - Curso nivel INTERMEDIO\n3 - Curso nivel AVANZADO"))
+    }
+    return nivel
+}
+
+function ingresoCantidad() {
+    let cantidad= Number(prompt("Por favor ingrese la cantidad de alumnos que desea inscribir:"))
+
+    while ( cantidad <= 0 || isNaN(cantidad)) {
+        cantidad = Number(prompt("Cantidad invalida!\nPor favor ingrese un número valido para la cantidad de alumnos que desea inscribir:"))
+    }
+    return cantidad
+}
+
 function calcularPrecio(nivel, alumnos) {
     let j = nivel - 1
     return precio = preciosCursos[j] * alumnos
@@ -53,9 +71,9 @@ function core() {
             let precioCurso
             let precioCursoConDesc
 
-            cantAlumnos = Number(prompt("Por favor ingrese la cantidad de alumnos que desea inscribir:"))
-            nivelCurso = Number(prompt("Ingrese 1,  2 o 3 indicando el curso que quiere cotizar:\n1 - Curso nivel INICIAL\n2 - Curso nivel INTERMEDIO\n3 - Curso nivel AVANZADO"))
-
+            nivelCurso = ingresoNivel()
+            cantAlumnos = ingresoCantidad()
+            
             precioCurso = calcularPrecio(nivelCurso, cantAlumnos)
             precioCursoConDesc = calcularConDescuento(cantAlumnos, precioCurso)
 

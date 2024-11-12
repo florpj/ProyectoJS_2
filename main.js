@@ -1,10 +1,14 @@
+/* Cotizador de cursos de Excel para empresas 
+Hay tres niveles de cursos con diferente precio y se realiza un descuento que aumenta a mayor cantidad de alumnos 
+Se puede cotizar mas un curso y al final se muestra un detalle de lo cotizado con el precio total. */
+
 let nombreEmpresa
 let cantAlumnos
 let nivelCurso
 let precioFinal = 0
 
-const preciosCursos = [50000, 55000, 60000]
-const descuentos = [0, 0.05, 0.10, 0.15, 0.2]
+const preciosCursos = [50000, 55000, 60000] // Precio por nivel, INICIAL, INTERMEDIO Y AVANZADO
+const descuentos = [0, 0.05, 0.10, 0.15, 0.2] // Descuento por cantidad de alumnos, entre 5 y 9 (5%), entre 10 y 14 (10%), entre 15 y 19 (15%), 20 o mas (20%)
 const cursos = ["Excel Inicial", "Excel Intermedio", "Excel Avanzado"]
 const cotizaciones = []
 
@@ -34,7 +38,7 @@ function mostrarCotizacion(empresa) {
     let finCotizacion = "\n"
     for (let i = 0; i < cotizaciones.length; i++) {
         const cotizacion = cotizaciones[i];
-        finCotizacion = finCotizacion + "Un curso de " + cotizacion.curso + " para " + cotizacion.alumnos + " de alumnos por $" + cotizacion.precio + "\n"
+        finCotizacion = finCotizacion + "Curso de " + cotizacion.curso + " para " + cotizacion.alumnos + " de alumnos por $" + cotizacion.precio + "\n"
         precioFinal = precioFinal + cotizacion.precio
     }
     alert("Sr/Sres de la empresa " + empresa + "\nA continucion se detalla los precios segun los datos ingresados:" + finCotizacion + "\nEl total es: " + precioFinal)

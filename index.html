@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Coder JS</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Cotizador de Cursos de Excel</title>
 </head>
-<body>
-    <h1>Bienvenido</h1>
 
+<body>
+
+    <div class="container">
+        <h1>Cotizador de Cursos de Excel</h1>
+        <p>Bienvenido al cotizador de nuestra pagina, ud tiene una empresa y desea cotizar uno o varios cursos de Excel?
+        </p>
+        <form id="cotizadorForm">
+            <label for="nombreEmpresa">Nombre de la Empresa</label>
+            <input type="text" id="nombreEmpresa" required>
+            <div class="contenedorCursos" id="cursos"> 
+
+                
+            </div>
+
+
+            <button type="button" onclick="cotizar()">Cotizar Curso</button>
+        </form>
+
+        <div id="resultado" class="result" style="display:none;"></div>
+
+    </div>
 
     <script src="main.js"></script>
 </body>
+
 </html>

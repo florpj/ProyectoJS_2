@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+}
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+.cadaCurso input{
+    width: 30%;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+}
+.contenedorCursos {
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+}
+.cadaCurso{
+    margin: 1%;
+}
+h4{
+    width: 100%;
+}

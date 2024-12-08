@@ -19,16 +19,49 @@ const cursosDictados = [
 ] // Precio por nivel, INICIAL, INTERMEDIO Y AVANZADO
 
 const nombreEmpresa = document.getElementById("nombreEmpresa");
-const cursos = document.getElementById("cursos")
-const cantAlumnos = document.getElementById("cantAlumnos")
+//const cursos = document.getElementById("cursos")
+//const cantAlumnos = document.getElementById("cantAlumnos")
 let precioFinal = 0
 const cotizaciones = []
+
+function calcularPrecio(nivel, alumnos) {
+    let j = nivel - 1
+    return precio = cursosDictados[j].precio * alumnos
+}
+
+function calcularConDescuento(alumnos, precio) {
+    let j = parseInt(alumnos / 5)
+    if (j < descuentos.length) {
+        return total = precio - (precio * descuentos[j])
+    } else {
+        return total = precio - (precio * descuentos[4])
+    }
+}
+
+function agregarCotizacion(nivel, alumnos, precio) {
+    cotizaciones.push({
+        curso: cursosDictados[nivel-1].curso,
+        alumnos,
+        precio
+    })
+
+}
 
 function agregarBoton() {
     const botonAgregar = document.getElementsByClassName("botonAgregar")
     const arrayBotones = Array.from(botonAgregar)
 
-    console.dir(arrayBotones)
+    arrayBotones.forEach(boton => {
+        boton.addEventListener("click", (evento) => {
+            evento.preventDefault()
+            let cantidadAlum = Number(evento.target.parentElement.children[2].value)
+            let nivel = Number(evento.target.parentElement.id)
+            let precio = calcularPrecio(nivel, cantidadAlum)
+            let precioConDescuento = calcularConDescuento(cantidadAlum, precio)
+
+            agregarCotizacion(nivel, cantidadAlum, precioConDescuento)
+        })
+    })
 }
 
 
@@ -38,10 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
             <div id=${curso.id} class="cadaCurso">
                     <h4>Curso de ${curso.curso}</h4>
                     <label for="cantAlumnos">Cantidad alumnos</label>
-                    <input type="number" id="cantAlumnos">
+                    <input type="number" class="cantAlumnos">
                     <button class="botonAgregar">Agregar</button>
             </div>
         `
     })
+
     agregarBoton()
+    console.log(cotizaciones)
 })

@@ -1,6 +1,5 @@
 const descuentos = [0, 0.05, 0.10, 0.15, 0.2] // Descuento por cantidad de alumnos, entre 5 y 9 (5%), entre 10 y 14 (10%), entre 15 y 19 (15%), 20 o mas (20%)
-const cursosDictados = [
-    {
+const cursosDictados = [{
         id: 1,
         curso: "Excel Inicial",
         precio: 50000
@@ -18,7 +17,7 @@ const cursosDictados = [
     }
 ] // Precio por nivel, INICIAL, INTERMEDIO Y AVANZADO
 
-const nombreEmpresa = document.getElementById("nombreEmpresa");
+const nombreEmpresa = document.getElementById("nombreEmpresa")
 //const cursos = document.getElementById("cursos")
 //const cantAlumnos = document.getElementById("cantAlumnos")
 let precioFinal = 0
@@ -40,7 +39,7 @@ function calcularConDescuento(alumnos, precio) {
 
 function agregarCotizacion(nivel, alumnos, precio) {
     cotizaciones.push({
-        curso: cursosDictados[nivel-1].curso,
+        curso: cursosDictados[nivel - 1].curso,
         alumnos,
         precio
     })
@@ -64,6 +63,40 @@ function agregarBoton() {
     })
 }
 
+function mostrarCotizacion(empresa) {
+    let finCotizacion = "\n"
+    for (let i = 0; i < cotizaciones.length; i++) {
+        const cotizacion = cotizaciones[i];
+        finCotizacion = finCotizacion + "Curso de " + cotizacion.curso + " para " + cotizacion.alumnos + " de alumnos por $" + cotizacion.precio + "\n"
+        precioFinal = precioFinal + cotizacion.precio
+    }
+
+    //alert("Sr/Sres de la empresa " + empresa + "\nA continucion se detalla los precios segun los datos ingresados:" + finCotizacion + "\nEl total es: " + precioFinal)
+}
+
+function cotizar() {
+    const botonCotizar = document.getElementById('botonCotizar')
+    const resultado = document.getElementById('resultado')
+    
+    botonCotizar.addEventListener('click', (evento) => {
+        let finCotizacion = "\n"
+        let textoCotizacion = ''
+        empresa = evento.target.parentElement[0].value
+
+        for (let i = 0; i < cotizaciones.length; i++) {
+            const cotizacion = cotizaciones[i];
+            finCotizacion = finCotizacion + "Curso de " + cotizacion.curso + " para " + cotizacion.alumnos + "alumnos por $" + cotizacion.precio + "\n"
+            precioFinal = precioFinal + cotizacion.precio
+        }
+        textoCotizacion = "Sr/Sres de la empresa " + empresa + "A continucion se detalla los precios segun los datos ingresados:\n" + finCotizacion + "\nEl total es: " + precioFinal
+        resultado.innerHTML = `
+        <p>Sr/Sres de la empresa ${empresa}  <br> A continucion se detalla los precios segun los datos ingresados: 
+        <br><br>  ${finCotizacion} <br><br>El total es: ${precioFinal} </p>
+        `
+    })
+
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
     cursosDictados.forEach(curso => {
@@ -78,5 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     agregarBoton()
+    cotizar(nombreEmpresa)
     console.log(cotizaciones)
 })

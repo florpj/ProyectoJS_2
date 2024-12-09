@@ -71,7 +71,6 @@ function mostrarCotizacion(empresa) {
         precioFinal = precioFinal + cotizacion.precio
     }
 
-    //alert("Sr/Sres de la empresa " + empresa + "\nA continucion se detalla los precios segun los datos ingresados:" + finCotizacion + "\nEl total es: " + precioFinal)
 }
 
 function cotizar() {
@@ -82,18 +81,25 @@ function cotizar() {
         let finCotizacion = "\n"
         let textoCotizacion = ''
         empresa = evento.target.parentElement[0].value
-
+        resultado.innerHTML += `
+        <p>Sr/Sres de la empresa ${empresa}  <br> A continucion se detalla los precios segun los datos ingresados:<br> </p> 
+        <ul>
+        `
         for (let i = 0; i < cotizaciones.length; i++) {
             const cotizacion = cotizaciones[i];
-            finCotizacion = finCotizacion + "Curso de " + cotizacion.curso + " para " + cotizacion.alumnos + "alumnos por $" + cotizacion.precio + "\n"
+            resultado.innerHTML+=`
+            <li>Curso de ${cotizacion.curso} para ${cotizacion.alumnos} alumnos por $ ${cotizacion.precio}</li>
+            `
+            //finCotizacion = finCotizacion + "Curso de " + cotizacion.curso + " para " + cotizacion.alumnos + "alumnos por $" + cotizacion.precio + "\n"
             precioFinal = precioFinal + cotizacion.precio
         }
-        textoCotizacion = "Sr/Sres de la empresa " + empresa + "A continucion se detalla los precios segun los datos ingresados:\n" + finCotizacion + "\nEl total es: " + precioFinal
-        resultado.innerHTML = `
-        <p>Sr/Sres de la empresa ${empresa}  <br> A continucion se detalla los precios segun los datos ingresados: 
-        <br><br>  ${finCotizacion} <br><br>El total es: ${precioFinal} </p>
+        resultado.innerHTML += `
+        </ul>
+        <p>El total es: ${precioFinal} </p>
         `
+        resultado.style.display = 'inline'
     })
+    
 
 }
 
@@ -111,6 +117,5 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     agregarBoton()
-    cotizar(nombreEmpresa)
-    console.log(cotizaciones)
+    cotizar()
 })

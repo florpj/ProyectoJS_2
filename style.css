@@ -1,6 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: "Handlee", serif;
+    font-weight: 600;
+    background-color: #65beb1;
     margin: 0;
     padding: 20px;
 }
@@ -10,8 +11,10 @@ body {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
 }
 h1 {
+    font-family: "Calistoga", serif;
     text-align: center;
 }
 label {
@@ -19,7 +22,7 @@ label {
     margin: 10px 0 5px;
 }
 input {
-    width: 90%;
+    width: 95%;
     padding: 8px;
     margin-bottom: 10px;
 }
@@ -29,18 +32,22 @@ input {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #B000DF;
     color: white;
     border: none;
     cursor: pointer;
+    font-family: "Handlee", serif;
+    font-weight: 600;
+    font-size: 18px;
 }
 button:hover {
-    background-color: #0056b3;
+    background-color: #9034A9;
 }
 .result {
     display: none ;
     margin-top: 20px;
     padding: 15px;
+    font-size: 18px;
 }
 .contenedorCursos {
     width: 100%;
@@ -53,3 +60,8 @@ button:hover {
 h4{
     width: 100%;
 }
+.labelTitulo{
+    font-size: 18px;
+    font-weight: 600;
+}
+

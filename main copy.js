@@ -52,6 +52,7 @@ function agregarCotizacion(nivel, alumnos, precio) {
     })
 
 }
+
 function mostrarCotizacion(empresa) {
     let finCotizacion = "\n"
     for (let i = 0; i < cotizaciones.length; i++) {

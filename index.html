@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Handlee&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Cotizador de Cursos de Excel</title>
 </head>
@@ -12,14 +15,14 @@
 
     <div class="container">
         <h1>Cotizador de Cursos de Excel</h1>
-        <p>Bienvenido al cotizador de nuestra pagina, ud tiene una empresa y desea cotizar uno o varios cursos de Excel?
+        <p>Bienvenido al cotizador de nuestra pagina, para cotizar uno o varios cursos por favor indique la cantidad de alumnos y presione el boton agregar:
         </p>
         <form id="cotizadorForm">
-            <label for="nombreEmpresa">Nombre de la Empresa</label>
-            <input type="text" id="nombreEmpresa" >
-            <div class="contenedorCursos" id="cursos"> 
+            <label for="nombreEmpresa" class="labelTitulo">Nombre de la Empresa</label>
+            <input type="text" id="nombreEmpresa">
+            <div class="contenedorCursos" id="cursos">
 
-                
+
             </div>
 
 
@@ -27,7 +30,7 @@
         </form>
 
         <div id="resultado" class="result">
-            
+
         </div>
 
     </div>

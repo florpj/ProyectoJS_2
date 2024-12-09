@@ -78,11 +78,9 @@ function cotizar() {
     const resultado = document.getElementById('resultado')
     
     botonCotizar.addEventListener('click', (evento) => {
-        let finCotizacion = "\n"
-        let textoCotizacion = ''
         empresa = evento.target.parentElement[0].value
         resultado.innerHTML += `
-        <p>Sr/Sres de la empresa ${empresa}  <br> A continucion se detalla los precios segun los datos ingresados:<br> </p> 
+        <p>Sr/Sres de la empresa ${empresa}  <br> A continuacion se detalla los precios segun los datos ingresados:<br> </p> 
         <ul>
         `
         for (let i = 0; i < cotizaciones.length; i++) {
@@ -90,7 +88,6 @@ function cotizar() {
             resultado.innerHTML+=`
             <li>Curso de ${cotizacion.curso} para ${cotizacion.alumnos} alumnos por $ ${cotizacion.precio}</li>
             `
-            //finCotizacion = finCotizacion + "Curso de " + cotizacion.curso + " para " + cotizacion.alumnos + "alumnos por $" + cotizacion.precio + "\n"
             precioFinal = precioFinal + cotizacion.precio
         }
         resultado.innerHTML += `
@@ -107,8 +104,8 @@ function cotizar() {
 document.addEventListener("DOMContentLoaded", () => {
     cursosDictados.forEach(curso => {
         cursos.innerHTML += `
-            <div id=${curso.id} class="cadaCurso">
-                    <h4>Curso de ${curso.curso}</h4>
+            <div id=${curso.id} class="cadaCurso labelTitulo">
+                    <h4>Curso de <br>${curso.curso}</h4>
                     <label for="cantAlumnos">Cantidad alumnos</label>
                     <input type="number" class="cantAlumnos">
                     <button class="botonAgregar">Agregar</button>

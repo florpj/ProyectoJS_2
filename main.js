@@ -43,7 +43,7 @@ function agregarCotizacion(nivel, alumnos, precio) {
         alumnos,
         precio
     })
-
+    
 }
 
 function agregarBoton() {
@@ -59,11 +59,20 @@ function agregarBoton() {
             let precioConDescuento = calcularConDescuento(cantidadAlum, precio)
 
             agregarCotizacion(nivel, cantidadAlum, precioConDescuento)
+            Swal.fire({
+                title: 'OK',
+                text: 'Ud a agregado el curso con EXITO!',
+                icon: 'success',
+                timer: 2000,
+                timerProgressBar: true,
+                showConfirmButton: false
+            })
+            evento.target.parentElement.children[2].value = ""
         })
     })
 }
 
-function mostrarCotizacion(empresa) {
+/* function mostrarCotizacion(empresa) {
     let finCotizacion = "\n"
     for (let i = 0; i < cotizaciones.length; i++) {
         const cotizacion = cotizaciones[i];
@@ -71,7 +80,7 @@ function mostrarCotizacion(empresa) {
         precioFinal = precioFinal + cotizacion.precio
     }
 
-}
+} */
 
 function cotizar() {
     const botonCotizar = document.getElementById('botonCotizar')

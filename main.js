@@ -21,7 +21,7 @@ const nombreEmpresa = document.getElementById("nombreEmpresa")
 //const cursos = document.getElementById("cursos")
 //const cantAlumnos = document.getElementById("cantAlumnos")
 let precioFinal = 0
-const cotizaciones = []
+let cotizaciones = JSON.parse(localStorage.getItem("cotizacion")) || []
 
 function calcularPrecio(nivel, alumnos) {
     let j = nivel - 1
@@ -59,6 +59,8 @@ function agregarBoton() {
             let precioConDescuento = calcularConDescuento(cantidadAlum, precio)
 
             agregarCotizacion(nivel, cantidadAlum, precioConDescuento)
+            localStorage.setItem("cotizacion",JSON.stringify(cotizaciones))
+            
             Swal.fire({
                 title: 'OK',
                 text: 'Ud a agregado el curso con EXITO!',
@@ -104,6 +106,8 @@ function cotizar() {
         <p>El total es: ${precioFinal} </p>
         `
         resultado.style.display = 'inline'
+
+        localStorage.removeItem("cotizacion")
     })
     
 
